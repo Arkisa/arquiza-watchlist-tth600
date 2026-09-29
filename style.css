@@ -1,0 +1,328 @@
+/* ============================================================
+   style.css — Netflix-inspired theme for the Movie Watchlist
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+  --bg: #141414;
+  --surface: #1F1F1F;
+  --surface-2: #2B2B2B;
+  --border: #3D3D3D;
+  --accent: #E50914;
+  --accent-soft: rgba(229, 9, 20, 0.15);
+  --text: #FFFFFF;
+  --text-muted: #B3B3B3;
+  --success: #46D369;
+  --success-soft: rgba(70, 211, 105, 0.15);
+  --danger: #E50914;
+  --danger-soft: rgba(229, 9, 20, 0.15);
+  --watching: #E5A00D;
+  --watching-soft: rgba(229, 160, 13, 0.15);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.5;
+}
+
+h1, h2, h3, .brand {
+  font-family: 'Bebas Neue', 'Roboto', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+a { color: inherit; }
+
+/* --- Nav: solid dark bar, red brand mark, Netflix-style spacing --- */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+  background: #000000;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav .brand {
+  font-size: 1.6rem;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 32px 80px;
+}
+
+/* --- Home / hero --- */
+.hero h1 {
+  font-size: 3.4rem;
+  margin: 0 0 12px;
+  max-width: 16ch;
+  line-height: 1.05;
+}
+
+.hero p {
+  color: var(--text-muted);
+  max-width: 52ch;
+  margin: 0 0 32px;
+  font-size: 1.05rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.stat .num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.4rem;
+  color: var(--accent);
+  display: block;
+}
+
+.stat .label {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.recent h2 {
+  font-size: 1.4rem;
+  margin-bottom: 14px;
+}
+
+.recent-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--border);
+}
+
+.recent-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.recent-list li span:first-child { color: var(--text); }
+
+/* --- Buttons: solid Netflix red, sharp corners --- */
+.btn {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 4px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn:hover { opacity: 0.85; }
+
+.btn--ghost {
+  background: rgba(109, 109, 110, 0.7);
+  color: var(--text);
+  border-color: transparent;
+}
+
+.btn--ghost:hover { background: rgba(109, 109, 110, 0.4); }
+
+.btn--danger {
+  background: transparent;
+  color: var(--danger);
+  border-color: var(--danger);
+  padding: 6px 14px;
+  font-size: 0.82rem;
+}
+
+.btn--small {
+  padding: 6px 14px;
+  font-size: 0.82rem;
+}
+
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 28px;
+}
+
+.page-head h1 { font-size: 2.2rem; }
+.page-head p { color: var(--text-muted); margin: 4px 0 0; }
+
+/* --- Table --- */
+.table-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+table { width: 100%; border-collapse: collapse; }
+
+th, td {
+  text-align: left;
+  padding: 14px 18px;
+  font-size: 0.92rem;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: #000000;
+}
+
+tr:last-child td { border-bottom: none; }
+
+tr:hover td { background: var(--surface-2); }
+
+.title-cell { font-family: 'Bebas Neue', sans-serif; font-size: 1.05rem; letter-spacing: 0.02em; }
+.title-cell .year { color: var(--text-muted); font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 0.85rem; letter-spacing: normal; }
+
+.actions { display: flex; gap: 8px; }
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.badge--done { background: var(--success-soft); color: var(--success); }
+.badge--watching { background: var(--watching-soft); color: var(--watching); }
+.badge--plan { background: var(--accent-soft); color: var(--accent); }
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+}
+
+/* --- Forms --- */
+.form-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 32px;
+  max-width: 480px;
+}
+
+.field { margin-bottom: 20px; }
+
+.field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 12px 14px;
+  background: #333333;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.field-error {
+  color: var(--danger);
+  font-size: 0.8rem;
+  margin-top: 6px;
+  display: none;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--accent);
+  color: #FFFFFF;
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .nav { flex-direction: column; gap: 14px; align-items: flex-start; }
+  main { padding: 32px 20px 60px; }
+  .actions { flex-direction: column; }
+}
